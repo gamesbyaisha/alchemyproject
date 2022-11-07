@@ -1,18 +1,42 @@
 using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class ChangeScene : MonoBehaviour
+namespace AishasAlchemy
 {
-    // Start is called before the first frame update
-    void Start()
+    public class ChangeScene : MonoBehaviour
     {
-        
-    }
+        private bool isLoading;
+        public TMP_Text text;
+        public AudioSource playSound;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public void restartScene()
+        {
+            //CoinPicker.coin = "Coins: " + coin.ToString();
+            //playSound.Play();
+            // Use a coroutine to load the Scene in the background
+            StartCoroutine(LoadYourAsyncScene());
+        }
+
+
+        IEnumerator LoadYourAsyncScene()
+        {
+            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Play");
+
+            // Wait until the asynchronous scene fully loads
+            while (!asyncLoad.isDone)
+            {
+                if (isLoading == false)
+                {
+                    Debug.Log("Loading");
+                    isLoading = true;
+                    text.enabled = true;
+                }
+
+                yield return null;
+
+            }
+        }
     }
 }
