@@ -30,26 +30,27 @@ public class Dot : MonoBehaviour
     {
         targetX = column;
         targetY = row;
+
         if(Mathf.Abs(targetX - transform.position.x) > .1){
             //move towards target
             tempPosition = new Vector2(targetX, transform.position.y);
-            transform.position = Vector2.Lerp(transform.position,tempPosition, .4f);
-            }else{
+            transform.position = Vector2.Lerp(transform.position,tempPosition, .1f);
+        }else{
             //set position
             tempPosition = new Vector2(targetX, transform.position.y);
             transform.position = tempPosition;
             board.allDots[column,row] = this.gameObject;
-            }
+        }
         if(Mathf.Abs(targetY - transform.position.y) > .1){
             //move towards target
             tempPosition = new Vector2(transform.position.x, targetY);
             transform.position = Vector2.Lerp(transform.position,tempPosition, .4f);
-            }else{
+        }else{
             //set position
             tempPosition = new Vector2(transform.position.x, targetY);
             transform.position = tempPosition;
             board.allDots[column,row] = this.gameObject;
-            }
+        }
             
     }
 
@@ -57,6 +58,7 @@ public class Dot : MonoBehaviour
 
     private void onMouseDown(){
         firstTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Debug.Log(firstTouchPosition);
     }
 
     private void onMouseUp(){
@@ -67,6 +69,7 @@ public class Dot : MonoBehaviour
     void CalculateAngle(){
         swipeAngle = Mathf.Atan2(finalTouchPosition.y - firstTouchPosition.y, finalTouchPosition.x - firstTouchPosition.x) * 180/Mathf.PI;
         MovePieces();
+        Debug.Log(swipeAngle);
     }
 
     void MovePieces(){

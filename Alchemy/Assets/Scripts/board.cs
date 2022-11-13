@@ -9,7 +9,6 @@ public class Board : MonoBehaviour
     public GameObject tilePrefab;
     private BackgroundTile[,] allTiles;
     public GameObject[] dots;
-
     public GameObject[,] allDots;
     
     // Start is called before the first frame update

@@ -225,7 +225,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &813817657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,7 +482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   width: 7
-  height: 10
+  height: 9
   tilePrefab: {fileID: 8569010009619431841, guid: a518199b833e84a369314fb6f76a58bc, type: 3}
   dots:
   - {fileID: 6974405662209577348, guid: b1673abdd692c41fcbfe802aedd1eb1b, type: 3}
