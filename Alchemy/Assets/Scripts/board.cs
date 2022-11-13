@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class board : MonoBehaviour
+public class Board : MonoBehaviour
 {
     public int width;
     public int height;
