@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -486,9 +486,9 @@ MonoBehaviour:
   - {fileID: 8133624072864555227, guid: cb722381cbddb42e7b6c489993aa02df, type: 3}
   - {fileID: 8426810290749307188, guid: c4b425d6686c4467189ba43cd01e2b8d, type: 3}
   - {fileID: 8608793557589918173, guid: 5cc8ae6075cbf4ad3872baeadffe0ce1, type: 3}
-  width: 7
-  height: 9
-  tilePrefab: {fileID: 7752918358052106075, guid: f3713b3806456bc43b1ff95bbcd18db3, type: 3}
+  width: 10
+  height: 15
+  tilePrefab: {fileID: 8569010009619431841, guid: a518199b833e84a369314fb6f76a58bc, type: 3}
 --- !u!4 &1563203789
 Transform:
   m_ObjectHideFlags: 0

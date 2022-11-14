@@ -25,12 +25,13 @@ public class Board : MonoBehaviour
             for (int j = 0; j < height; j ++){
                 Vector2 tempPosition = new Vector2(i, j);
                 GameObject backgroundTile = Instantiate(tilePrefab, tempPosition, Quaternion.identity) as GameObject;
-                // backgroundTile.transform.SetParent(gameObject.transform, false);
-                // worldPositionStays = false;
+                backgroundTile.transform.parent = this.transform;
+                // backgroundTile.transform.SetParent(this.transform,true);
                 backgroundTile.name = "( " + i + "," + j + " )";
                 int dotToUse = Random.Range(0, dots.Length);
                 GameObject dot = Instantiate(dots[dotToUse], tempPosition, Quaternion.identity);
-                // dot.transform.SetParent(gameObject.transform, false);
+                dot.transform.parent = this.transform;
+                // dot.transform.SetParent(this.transform,true);
                 dot.name = "( " + i + "," + j + " )";
                 allDots[i,j] = dot;
             }
