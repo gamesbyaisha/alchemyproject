@@ -40,18 +40,37 @@ public class Dot : MonoBehaviour
             tempPosition = new Vector2(targetX, transform.position.y);
             transform.position = tempPosition;
             // board.allDots[column,row](this.gameObject, true);
-            board.allDots[column,row]=this.gameObject;
+            board.allDots[column, row]=this.gameObject;
         }
-        if(Mathf.Abs(targetY - transform.position.y) > .1){
-            //move towards target
+        
+        // if(Mathf.Abs(targetY - transform.position.y) > .1){
+        //     //move towards target
+        //     tempPosition = new Vector2(transform.position.x, targetY);
+        //     transform.position = Vector2.Lerp(transform.position,tempPosition, .4f);
+        // }else{
+        //     //set position
+        //     tempPosition = new Vector2(transform.position.x, targetY);
+        //     transform.position = tempPosition;
+        //     board.allDots[column, row] = this.gameObject;
+        //     // board.allDots[column,row](this.gameObject, true);
+        // }
+        if (Mathf.Abs(targetY - transform.position.y) > .1)
+        {
+            //Move Towards the target
             tempPosition = new Vector2(transform.position.x, targetY);
-            transform.position = Vector2.Lerp(transform.position,tempPosition, .4f);
-        }else{
-            //set position
+            transform.position = Vector2.Lerp(transform.position, tempPosition, .6f);
+            if (board.allDots[column, row] != this.gameObject)
+            {
+                board.allDots[column, row] = this.gameObject;
+            }
+
+        }
+        else
+        {
+            //Directly set the position
             tempPosition = new Vector2(transform.position.x, targetY);
             transform.position = tempPosition;
-            board.allDots[column,row] = this.gameObject;
-            // board.allDots[column,row](this.gameObject, true);
+
         }
             
     }
@@ -69,36 +88,58 @@ public class Dot : MonoBehaviour
     }
 
     void CalculateAngle(){
-        swipeAngle = Mathf.Atan2(finalTouchPosition.y - firstTouchPosition.y, finalTouchPosition.x - firstTouchPosition.x) * 180/Mathf.PI;
-        MovePieces();
+        swipeAngle = Mathf.Atan2(finalTouchPosition.y - firstTouchPosition.y, finalTouchPosition.x - firstTouchPosition.x) * 180 / Mathf.PI;
         Debug.Log(swipeAngle);
+        MovePieces();
     }
 
     void MovePieces(){
-        if(swipeAngle > 45 && swipeAngle <= 135 && row < board.height){
-            //up swipe
-            otherDot = board.allDots[column, row + 1];
-            otherDot.GetComponent<Dot>().row -=1;
-            row += 1;
-        }
-        else if(swipeAngle > -45 && swipeAngle <= 45 && column < board.width){
-            //right swipe
+        // if(swipeAngle > -45 && swipeAngle <= 45 && column < board.width){
+        //     //up swipe
+        //     otherDot = board.allDots[column + 1, row];
+        //     otherDot.GetComponent<Dot>().column -=1;
+        //     column += 1;
+        // }
+        // else if(swipeAngle > 45 && swipeAngle <= 135 && row < board.height){
+        //     //right swipe
+        //     otherDot = board.allDots[column, row + 1];
+        //     otherDot.GetComponent<Dot>().row -=1;
+        //     row += 1;
+        // }
+        // else if((swipeAngle > 135 || swipeAngle <= -135) && column > 0){
+        //     //down swipe
+        //     otherDot = board.allDots[column - 1, row];
+        //     otherDot.GetComponent<Dot>().column +=1;
+        //     column -= 1;
+        //  }
+        // else if(swipeAngle < -45 && swipeAngle >= -135 && row > 0){
+        //     //left swipe
+        //     otherDot = board.allDots[column, row - 1];
+        //     otherDot.GetComponent<Dot>().row +=1;
+        //     row -= 1;
+        // }
+        if(swipeAngle > -45 && swipeAngle <= 45 && column < board.width-1){
+            //Right Swipe
             otherDot = board.allDots[column + 1, row];
             otherDot.GetComponent<Dot>().column -=1;
             column += 1;
-        }
-         
-        else if((swipeAngle > 135 || swipeAngle <= -135) && column > 0){
-            //left swipe
+
+        } else if(swipeAngle > 45 && swipeAngle <= 135 && row < board.height-1){
+            //Up Swipe
+            otherDot = board.allDots[column, row + 1];
+            otherDot.GetComponent<Dot>().row -=1;
+            row += 1;
+           
+        } else if((swipeAngle > 135 || swipeAngle <= -135) && column > 0){
+            //Left Swipe
             otherDot = board.allDots[column - 1, row];
             otherDot.GetComponent<Dot>().column +=1;
             column -= 1;
-         }
-        else if(swipeAngle < -45 && swipeAngle >= -135 && row > 0){
-            //down swipe
+        } else if(swipeAngle < -45 && swipeAngle >= -135 && row > 0){
+            //Down Swipe
             otherDot = board.allDots[column, row - 1];
             otherDot.GetComponent<Dot>().row +=1;
             row -= 1;
-        }
+        } 
     }
 }
