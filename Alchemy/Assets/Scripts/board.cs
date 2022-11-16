@@ -160,9 +160,8 @@ public class Board : MonoBehaviour {
         if(allDots[column, row].GetComponent<Dot>().isMatched){
             // How many elements are in the matched pieces list from findmatches?
             if(findMatches.currentMatches.Count == 4 || findMatches.currentMatches.Count == 7){
-                findMatches.CheckBombs();
+                // findMatches.CheckBombs();
             }
-
             GameObject particle = Instantiate(destroyParticle, 
                                               allDots[column, row].transform.position, 
                                               Quaternion.identity);
