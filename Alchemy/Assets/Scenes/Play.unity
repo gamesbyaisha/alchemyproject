@@ -680,7 +680,7 @@ MonoBehaviour:
   width: 6
   height: 8
   offSet: 20
-  tilePrefab: {fileID: 8569010009619431841, guid: a518199b833e84a369314fb6f76a58bc, type: 3}
+  tilePrefab: {fileID: 3140069004021775427, guid: 3c4440eb2a63c0444b86922278a4b68f, type: 3}
   dots:
   - {fileID: 6974405662209577348, guid: b1673abdd692c41fcbfe802aedd1eb1b, type: 3}
   - {fileID: 8133624072864555227, guid: cb722381cbddb42e7b6c489993aa02df, type: 3}

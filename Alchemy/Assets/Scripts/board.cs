@@ -108,14 +108,14 @@ public class Board : MonoBehaviour {
 
                 int dotToUse = Random.Range(0, dots.Length);
 
-                // int maxIterations = 0;
+                int maxIterations = 0;
 
-                // while(MatchesAt(i, j, dots[dotToUse]) && maxIterations < 100){
-                //     dotToUse = Random.Range(0, dots.Length);
-                //     maxIterations++;
-                //     Debug.Log(maxIterations);
-                // }
-                // maxIterations = 0;
+                while(MatchesAt(i, j, dots[dotToUse]) && maxIterations < 100){
+                    dotToUse = Random.Range(0, dots.Length);
+                    maxIterations++;
+                    Debug.Log(maxIterations);
+                }
+                maxIterations = 0;
 
                 GameObject dot = Instantiate(dots[dotToUse], tempPosition, Quaternion.identity);
                 dot.GetComponent<Dot>().row = j;
@@ -158,10 +158,10 @@ public class Board : MonoBehaviour {
 
     private void DestroyMatchesAt(int column, int row){
         if(allDots[column, row].GetComponent<Dot>().isMatched){
-            //How many elements are in the matched pieces list from findmatches?
-            // if(findMatches.currentMatches.Count == 4 || findMatches.currentMatches.Count == 7){
-                // findMatches.CheckBombs();
-            // }
+            // How many elements are in the matched pieces list from findmatches?
+            if(findMatches.currentMatches.Count == 4 || findMatches.currentMatches.Count == 7){
+                findMatches.CheckBombs();
+            }
 
             GameObject particle = Instantiate(destroyParticle, 
                                               allDots[column, row].transform.position, 
