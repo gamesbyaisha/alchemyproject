@@ -159,15 +159,18 @@ public class Board : MonoBehaviour {
     private void DestroyMatchesAt(int column, int row){
         if(allDots[column, row].GetComponent<Dot>().isMatched){
             // How many elements are in the matched pieces list from findmatches?
-            if(findMatches.currentMatches.Count == 4 || findMatches.currentMatches.Count == 7){
-                // findMatches.CheckBombs();
-            }
-            GameObject particle = Instantiate(destroyParticle, 
-                                              allDots[column, row].transform.position, 
-                                              Quaternion.identity);
+            // if(findMatches.currentMatches.Count == 4 || findMatches.currentMatches.Count == 7){
+            //     findMatches.CheckBombs();
+            // }
+
+
+            GameObject particle = Instantiate(destroyParticle,allDots[column, row].transform.position, Quaternion.identity);
             Destroy(particle, .5f);
             Destroy(allDots[column, row]);
             allDots[column, row] = null;
+            // Instantiate(destroyParticle,allDots[column, row].transform.position, Quaternion.identity);
+            // Destroy(allDots[column, row]);
+            // allDots[column, row] = null;
         }
     }
 
