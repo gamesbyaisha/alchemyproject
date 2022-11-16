@@ -219,22 +219,22 @@ public class Dot : MonoBehaviour {
 
     [Header("Swipe Stuff")]
     public float swipeAngle = 0;
-    public float swipeResist = 1f;
+    // public float swipeResist = 1f;
 
-    [Header("Powerup Stuff")]
-    public bool isColorBomb;
-    public bool isColumnBomb;
-    public bool isRowBomb;
-    public GameObject rowArrow;
-    public GameObject columnArrow;
-    public GameObject colorBomb;
+    // [Header("Powerup Stuff")]
+    // public bool isColorBomb;
+    // public bool isColumnBomb;
+    // public bool isRowBomb;
+    // public GameObject rowArrow;
+    // public GameObject columnArrow;
+    // public GameObject colorBomb;
 
 
 	// Use this for initialization
 	void Start () {
 
-        isColumnBomb = false;
-        isRowBomb = false;
+        // isColumnBomb = false;
+        // isRowBomb = false;
 
         board = FindObjectOfType<Board>();
         findMatches = FindObjectOfType<FindMatches>();
@@ -356,16 +356,16 @@ public class Dot : MonoBehaviour {
     }
 
     void CalculateAngle(){
-        if (Mathf.Abs(finalTouchPosition.y - firstTouchPosition.y) > swipeResist || Mathf.Abs(finalTouchPosition.x - firstTouchPosition.x) > swipeResist)
-        {
+        // if (Mathf.Abs(finalTouchPosition.y - firstTouchPosition.y) || Mathf.Abs(finalTouchPosition.x - firstTouchPosition.x))
+        // {
             swipeAngle = Mathf.Atan2(finalTouchPosition.y - firstTouchPosition.y, finalTouchPosition.x - firstTouchPosition.x) * 180 / Mathf.PI;
             MovePieces();
             board.currentState = GameState.wait;
             board.currentDot = this;
-        }else{
-            board.currentState = GameState.move;
+        // }else{
+        //     board.currentState = GameState.move;
 
-        }
+        // }
         Debug.Log(swipeAngle);
     }
 
