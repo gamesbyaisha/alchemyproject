@@ -164,13 +164,13 @@ public class Board : MonoBehaviour {
             // }
 
 
-            GameObject particle = Instantiate(destroyParticle,allDots[column, row].transform.position, Quaternion.identity);
-            Destroy(particle, .5f);
-            Destroy(allDots[column, row]);
-            allDots[column, row] = null;
-            // Instantiate(destroyParticle,allDots[column, row].transform.position, Quaternion.identity);
+            // GameObject particle = Instantiate(destroyParticle,allDots[column, row].transform.position, Quaternion.identity);
+            // Destroy(particle, .5f);
             // Destroy(allDots[column, row]);
             // allDots[column, row] = null;
+            Instantiate(destroyParticle,allDots[column, row].transform.position, Quaternion.identity);
+            Destroy(allDots[column, row]);
+            allDots[column, row] = null;
         }
     }
 
