@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Potion3
+  - Potion1
+  - Potion2
+  - Potion4
   layers:
   - Default
   - TransparentFX
