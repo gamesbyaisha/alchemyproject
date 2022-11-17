@@ -87,11 +87,15 @@ public class Board : MonoBehaviour {
     public GameObject[,] allDots;
     public Dot currentDot;
     private FindMatches findMatches;
+    public int basePieceValue = 20;
+    private int streakValue = 1;
+    private ScoreManager scoreManager;
 
 
 
 	// Use this for initialization
 	void Start () {
+        scoreManager = FindObjectOfType<ScoreManager>();
         findMatches = FindObjectOfType<FindMatches>();
         allTiles = new BackgroundTile[width, height];
         allDots = new GameObject[width, height];
@@ -170,6 +174,7 @@ public class Board : MonoBehaviour {
             // allDots[column, row] = null;
             Instantiate(destroyParticle,allDots[column, row].transform.position, Quaternion.identity);
             Destroy(allDots[column, row]);
+            scoreManager.IncreaseScore(basePieceValue * streakValue);
             allDots[column, row] = null;
         }
     }
@@ -238,6 +243,7 @@ public class Board : MonoBehaviour {
         yield return new WaitForSeconds(.5f);
 
         while(MatchesOnBoard()){
+            streakValue ++;
             yield return new WaitForSeconds(.5f);
             DestroyMatches();
         }
@@ -245,6 +251,7 @@ public class Board : MonoBehaviour {
         currentDot = null;
         yield return new WaitForSeconds(.5f);
         currentState = GameState.move;
+        streakValue = 1;
 
     }
 
