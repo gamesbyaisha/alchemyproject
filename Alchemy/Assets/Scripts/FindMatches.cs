@@ -7,6 +7,7 @@ public class FindMatches : MonoBehaviour {
 
     private Board board;
     public List<GameObject> currentMatches = new List<GameObject>();
+    public AudioSource audioSource; 
 
 	// Use this for initialization
 	void Start () {
@@ -62,6 +63,7 @@ public class FindMatches : MonoBehaviour {
             currentMatches.Add(dot);
         }
         dot.GetComponent<Dot>().isMatched = true;
+        audioSource.Play();
     }
 
     private void GetNearbyPieces(GameObject dot1, GameObject dot2, GameObject dot3){
@@ -165,6 +167,7 @@ public class FindMatches : MonoBehaviour {
             {
                 dots.Add(board.allDots[i, row]);
                 board.allDots[i, row].GetComponent<Dot>().isMatched = true;
+                audioSource.Play();
             }
         }
         return dots;
