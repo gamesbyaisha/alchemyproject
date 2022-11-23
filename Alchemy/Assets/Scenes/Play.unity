@@ -462,6 +462,9 @@ MonoBehaviour:
     numberCollected: 0
     goalSprite: {fileID: 21300000, guid: 32e276c4ed81d4dd186f301dbd34ce53, type: 3}
     matchValue: Potion4
+  goalPrefab: {fileID: 1150618235}
+  goalIntroParent: {fileID: 0}
+  goalGameParent: {fileID: 0}
 --- !u!1 &633533802
 GameObject:
   m_ObjectHideFlags: 0

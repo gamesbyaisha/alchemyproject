@@ -25,11 +25,13 @@ public class GoalManager : MonoBehaviour
 
     void SetupIntroGoals()
     {
-        for(int i = 0; i < levelGoals.length; i++)
+        for(int i = 0; i < levelGoals.Length; i++)
         {
             //create new goal panel
             GameObject goal = Instantiate(goalPrefab, goalIntroParent.transform.position, Quaternion.identity);
             goal.transform.SetParent(goalIntroParent.transform);
+            GameObject gameGoal = Instantiate(goalPrefab, goalGameParent.transform.position, Quaternion.identity);
+            goal.transform.SetParent(goalGameParent.transform);
         }
     }
 
